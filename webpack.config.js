@@ -1,5 +1,9 @@
 // nodeのpathを使用する
 const path = require("path");
+// mini-css-extract-pluginを読み込む
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// html-webpack-pluginを読み込む
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // エントリー：大本になるJSファイルを指定
@@ -23,7 +27,7 @@ module.exports = {
         test: /\.css/,
         use: [
           {
-            loader: "style-loader",
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: "css-loader",
@@ -32,4 +36,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+  ],
 };
