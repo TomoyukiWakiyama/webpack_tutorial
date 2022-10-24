@@ -11,14 +11,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   // エントリー：大本になるJSファイルを指定
   entry: "./src/javascripts/main.js",
 
   // アウトプット：コンパイルしたファイルの指定
   // 絶対パスで指定する
   output: {
-    path: path.resolve(__dirname, "dist"),
     filename: "javascripts/main.js",
+    path: path.resolve(__dirname, "dist"),
   },
 
   devServer: {
@@ -40,6 +41,15 @@ module.exports = {
   module: {
     // 各loaderのオプションをrules配列に格納する
     rules: [
+      {
+        test: /\.(ts|tsx)/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "ts-loader",
+          },
+        ],
+      },
       // cssloaderの設定をオブジェクトを記載する
       {
         // test：ファイル名を検知する。正規表現で記載する
