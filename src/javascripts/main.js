@@ -1,5 +1,5 @@
 import myJS from "./my";
-import "../stylesheets/main.css";
+import "../stylesheets/main.scss";
 
 console.log("aaa");
 myJS();

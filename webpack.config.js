@@ -44,13 +44,16 @@ module.exports = {
       {
         // test：ファイル名を検知する。正規表現で記載する
         // .cssというファイルを検知したらuseを実行する
-        test: /\.css/,
+        test: /\.(css|sass|scss)/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: "css-loader",
+          },
+          {
+            loader: "sass-loader",
           },
         ],
       },
