@@ -13,7 +13,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "development",
   // エントリー：大本になるJSファイルを指定
-  entry: "./src/javascripts/main.js",
+  entry: "./src/javascripts/main.ts",
 
   // アウトプット：コンパイルしたファイルの指定
   // 絶対パスで指定する
@@ -83,6 +83,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
   },
   plugins: [
     new MiniCssExtractPlugin({
