@@ -1,7 +1,15 @@
+//- https://qiita.com/sszzszsz/items/c206b3536818bb9db7be
 extends _layout.pug
 block locals
   - let title = "Hello Pug!"
 block content
   h1 Hello, Pug
-  .content
-    p.title CONTENT TITLE
+  main
+    .content
+      .obj
+        h2 Object
+        include _data.pug
+        .objList
+          each item,index in items
+            div(class=item.className)
+              p #{item.displayText}

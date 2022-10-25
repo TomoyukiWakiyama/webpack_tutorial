@@ -1,9 +1,27 @@
-body {
-  color: #333;
-}
+@use "_reset";
 
 .content {
   & .title {
     font-size: 24px;
+  }
+}
+
+.obj {
+  &List {
+    display: flex;
+    justify-content: space-between;
+    &__item {
+      position: relative;
+      background-color: teal;
+      width: calc((100% / 8) - 4px);
+      height: 120px;
+      border-radius: 4px;
+      & > p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 }
